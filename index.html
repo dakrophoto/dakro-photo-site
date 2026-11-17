@@ -131,9 +131,9 @@ footer{position:fixed; bottom:0; left:0; right:0; z-index:150; text-align:center
   .vol-info .cta{align-self:center;}
 }
 @media (max-width:760px){
-  #about{grid-template-columns:1fr; grid-template-rows:auto auto; height:auto; min-height:100vh;}
-  .about-photo{height:34vh;}
-  .about-copy{padding:36px 26px 0;}
+  #about{grid-template-columns:1fr; grid-template-rows:auto auto; height:auto; min-height:100vh; min-height:100dvh;}
+  .about-photo{height:30vh; height:30dvh;}
+  .about-copy{padding:36px 26px calc(29px + env(safe-area-inset-bottom,0px));}
   /* Keep the contact call-to-action pinned above the footer while the bio scrolls */
   .about-cta{position:sticky; bottom:calc(29px + env(safe-area-inset-bottom,0px)); z-index:5; flex-direction:row; align-items:center; gap:16px;
     margin:0 -26px; padding:14px 26px; background:var(--ink);}
