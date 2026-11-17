@@ -71,6 +71,8 @@ img{display:block; max-width:100%;}
 .about-copy li{position:relative; padding-left:20px; margin-bottom:8px; font-size:19px; line-height:1.4;}
 .about-copy li::before{content:"—"; position:absolute; left:0; color:var(--brass);}
 .about-copy p{font-size:17px; line-height:1.5; margin-bottom:22px; max-width:60ch;}
+.about-cta{display:flex; flex-direction:column;}
+@media (min-width:761px){ .about-copy p{font-size:18px;} }
 .cta{display:inline-block; align-self:flex-start; border:1px solid var(--brass); color:var(--brass); padding:12px 28px; font-size:15px; letter-spacing:.14em; text-transform:uppercase; transition:background .25s,color .25s;}
 .cta:hover{background:var(--brass); color:var(--ink);}
 
@@ -131,7 +133,14 @@ footer{position:fixed; bottom:0; left:0; right:0; z-index:150; text-align:center
 @media (max-width:760px){
   #about{grid-template-columns:1fr; grid-template-rows:auto auto; height:auto; min-height:100vh;}
   .about-photo{height:34vh;}
-  .about-copy{padding:36px 26px;}
+  .about-copy{padding:36px 26px 0;}
+  /* Keep the contact call-to-action pinned above the footer while the bio scrolls */
+  .about-cta{position:sticky; bottom:calc(29px + env(safe-area-inset-bottom,0px)); z-index:5; flex-direction:row; align-items:center; gap:16px;
+    margin:0 -26px; padding:14px 26px; background:var(--ink);}
+  .about-cta::before{content:""; position:absolute; left:0; right:0; top:-18px; height:18px; background:linear-gradient(180deg, rgba(20,19,17,0), var(--ink)); pointer-events:none;}
+  .about-cta p{font-size:15px; line-height:1.3; margin:0; flex:1;}
+  .about-cta .cta{flex:none; align-self:center; padding:11px 20px; font-size:14px;}
+  .about-copy p:nth-last-child(2){margin-bottom:0;}
   .nav-links{gap:16px; font-size:13px;}
   #navLogo{font-size:17px;}
 }
@@ -170,8 +179,10 @@ footer{position:fixed; bottom:0; left:0; right:0; z-index:150; text-align:center
         <p>My name is Dakota Rosell and I like to take pictures. Thank you for taking a closer look at my work!</p>
         <p>No small detail ever goes unnoticed by me; I'm the kind of person that catches every typo in a book, notices unique license plates on a road trip, and tells you the scientific name for every odd-looking cloud in the sky. That attention to detail led me to a career as an engineer in the auto industry where I am paid for my ability to problem-solve and find innovative ways to do things. I bring the same mindset to your session, catching subtle moments at corporate events and parties or guiding you through unique, creative shots in a portrait session.</p>
         <p>There is beauty in everything; that's why I shoot it all! When I'm not shooting dog adoption events and family parties, I enjoy everything from drone photography of scenic landscapes to macro shots of plants and insects.</p>
-        <p>Interested in immortalizing a moment with me?</p>
-        <a href="#" class="cta" data-view="contact">Contact Me</a>
+        <div class="about-cta">
+          <p>Interested in immortalizing a moment with me?</p>
+          <a href="#" class="cta" data-view="contact">Contact Me</a>
+        </div>
       </div>
     </div>
 
